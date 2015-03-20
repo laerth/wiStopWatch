@@ -11,31 +11,32 @@ namespace WI_StopWatch
     {
         private bool _stopped = true;
         private DateTime _startTime;
-        private DateTime _frozenTime = DateTime.Now;
+        private TimeSpan _frozenTime = new TimeSpan();
 
         private void _Start()
         {
             if (_stopped)
             {
-                _startTime = DateTime.Now;
+                _startTime = DateTime.Now - _frozenTime;
                 _stopped = false;
             }
         }
 
         private void _Stop()
         {
-            _frozenTime = DateTime.Now;
+            _frozenTime = DateTime.Now - _startTime;
             _stopped = true;
         }
 
         private void _Reset()
         {
             _startTime = DateTime.Now;
+            _frozenTime = new TimeSpan();
         }
 
         private TimeSpan _GetTime()
         {
-            return (_stopped ? _frozenTime : _startTime) - DateTime.Now;
+            return _stopped ? _frozenTime : _startTime - DateTime.Now;
         }
 
         public void Start()
