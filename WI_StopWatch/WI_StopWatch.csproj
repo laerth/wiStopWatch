@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IStopWatch.cs" />
+    <Compile Include="SWController.cs" />
     <Compile Include="WI_StopWatch.cs">
       <SubType>Form</SubType>
     </Compile>

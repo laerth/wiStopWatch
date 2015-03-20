@@ -26,7 +26,7 @@ namespace WI_StopWatch
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-            stopWatch = new StopWatch();
+            stopWatch = new SWController(this);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,6 +42,14 @@ namespace WI_StopWatch
         private void button4_Click(object sender, EventArgs e)
         {
             label1.Text = stopWatch.GetTime().ToString(@"hh\:mm\:ss");
+        }
+
+        public void ChangeText(string newText)
+        {
+            this.Invoke(new Action(() => 
+                {
+                    this.label1.Text = newText;
+                }));
         }
     }
 }
