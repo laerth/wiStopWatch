@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WI_StopWatch
 {
@@ -13,20 +11,26 @@ namespace WI_StopWatch
         private StopWatch stopWatch;
         private frmMain frm;
         private Thread updater;
+        private Action<string> setTimeStr;
 
-        public SWController(frmMain form)
+        public SWController(Action<string> setTimeString)
         {
-            frm = form;
+            setTimeStr = setTimeString;
             stopWatch = new StopWatch();
         }
 
         private void UpdateLabel()
         {
-            while (true)
+            try
             {
-                frm.ChangeText(stopWatch.GetTime().ToString(@"hh\:mm\:ss"));
-                Thread.Sleep(250);
+                while (true)
+                {
+                    setTimeStr(stopWatch.GetTime().ToString(@"hh\:mm\:ss"));
+                    Thread.Sleep(250);
+                }
             }
+            catch (ThreadAbortException)
+            { }
         }
 
         public void Start()
@@ -39,11 +43,13 @@ namespace WI_StopWatch
         public void Stop()
         {
             stopWatch.Stop();
+            updater.Abort();
         }
 
         public void Reset()
         {
             stopWatch.Reset();
+            setTimeStr("00:00:00");
         }
 
         public TimeSpan GetTime()
