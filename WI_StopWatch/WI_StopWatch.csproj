@@ -44,12 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IStopWatch.cs" />
-    <Compile Include="SWController.cs" />
-    <Compile Include="UIStopWatch.cs">
+    <Compile Include="Controls\UI_SWList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UIStopWatch.Designer.cs">
+    <Compile Include="Controls\UI_SWList.Designer.cs">
+      <DependentUpon>UI_SWList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StopWatch\IStopWatch.cs" />
+    <Compile Include="StopWatch\SWController.cs" />
+    <Compile Include="Controls\UIStopWatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UIStopWatch.Designer.cs">
       <DependentUpon>UIStopWatch.cs</DependentUpon>
     </Compile>
     <Compile Include="WI_StopWatch.cs">
@@ -60,9 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StopWatch.cs" />
-    <EmbeddedResource Include="UIStopWatch.resx">
+    <Compile Include="StopWatch\StopWatch.cs" />
+    <EmbeddedResource Include="Controls\UIStopWatch.resx">
       <DependentUpon>UIStopWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UI_SWList.resx">
+      <DependentUpon>UI_SWList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WI_StopWatch.resx">
       <DependentUpon>WI_StopWatch.cs</DependentUpon>

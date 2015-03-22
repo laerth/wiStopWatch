@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.panTitleContainer = new System.Windows.Forms.Panel();
+            this.laCaption = new System.Windows.Forms.Label();
             this.panContentContainer = new System.Windows.Forms.Panel();
             this.laTime = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.laCaption = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.panTitleContainer.SuspendLayout();
             this.panContentContainer.SuspendLayout();
             this.SuspendLayout();
@@ -47,11 +48,22 @@
             this.panTitleContainer.Size = new System.Drawing.Size(204, 30);
             this.panTitleContainer.TabIndex = 0;
             // 
+            // laCaption
+            // 
+            this.laCaption.AutoSize = true;
+            this.laCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.laCaption.Location = new System.Drawing.Point(3, 3);
+            this.laCaption.Name = "laCaption";
+            this.laCaption.Size = new System.Drawing.Size(25, 24);
+            this.laCaption.TabIndex = 0;
+            this.laCaption.Text = "...";
+            // 
             // panContentContainer
             // 
             this.panContentContainer.Controls.Add(this.laTime);
             this.panContentContainer.Controls.Add(this.btnStart);
             this.panContentContainer.Controls.Add(this.btnReset);
+            this.panContentContainer.Controls.Add(this.btnRemove);
             this.panContentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panContentContainer.Location = new System.Drawing.Point(0, 30);
             this.panContentContainer.Name = "panContentContainer";
@@ -62,7 +74,7 @@
             // 
             this.laTime.AutoSize = true;
             this.laTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.laTime.Location = new System.Drawing.Point(33, 3);
+            this.laTime.Location = new System.Drawing.Point(3, 3);
             this.laTime.Name = "laTime";
             this.laTime.Size = new System.Drawing.Size(80, 24);
             this.laTime.TabIndex = 3;
@@ -72,7 +84,7 @@
             // btnStart
             // 
             this.btnStart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnStart.Location = new System.Drawing.Point(144, 0);
+            this.btnStart.Location = new System.Drawing.Point(114, 0);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(30, 30);
             this.btnStart.TabIndex = 2;
@@ -83,7 +95,7 @@
             // btnReset
             // 
             this.btnReset.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnReset.Location = new System.Drawing.Point(174, 0);
+            this.btnReset.Location = new System.Drawing.Point(144, 0);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(30, 30);
             this.btnReset.TabIndex = 1;
@@ -91,15 +103,16 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // laCaption
+            // btnRemove
             // 
-            this.laCaption.AutoSize = true;
-            this.laCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.laCaption.Location = new System.Drawing.Point(3, 3);
-            this.laCaption.Name = "laCaption";
-            this.laCaption.Size = new System.Drawing.Size(25, 24);
-            this.laCaption.TabIndex = 0;
-            this.laCaption.Text = "...";
+            this.btnRemove.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRemove.Location = new System.Drawing.Point(174, 0);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(30, 30);
+            this.btnRemove.TabIndex = 4;
+            this.btnRemove.Text = "d";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // UIStopWatch
             // 
@@ -125,5 +138,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label laCaption;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

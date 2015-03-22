@@ -19,8 +19,9 @@ namespace WI_StopWatch
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UIStopWatch s = new UIStopWatch("for test");
-            this.panel1.Controls.Add(s);
+            UI_SWList swList = new UI_SWList();
+            swList.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(swList);
         }
 
         private void frmMain_Shown(object sender, EventArgs e)
