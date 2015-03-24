@@ -9,7 +9,6 @@ namespace WI_StopWatch
     class SWController : IStopWatch
     {
         private StopWatch stopWatch;
-        private frmMain frm;
         private Thread updater;
         private Action<string> setTimeStr;
 

@@ -55,15 +55,21 @@
             this.tbCaption.Size = new System.Drawing.Size(248, 20);
             this.tbCaption.TabIndex = 2;
             this.tbCaption.Text = "...";
+            this.tbCaption.Click += new System.EventHandler(this.tbCaption_Click);
+            this.tbCaption.Enter += new System.EventHandler(this.tbCaption_Enter);
+            this.tbCaption.MouseEnter += new System.EventHandler(this.tbCaption_MouseEnter);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackgroundImage = global::WI_StopWatch.Properties.Resources.add;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Location = new System.Drawing.Point(257, 0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(30, 30);
             this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "a";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -79,6 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panControls);
             this.Controls.Add(this.panButtons);
             this.Name = "UI_SWList";

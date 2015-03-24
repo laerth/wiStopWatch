@@ -5,15 +5,17 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WI_StopWatch
 {
     public partial class UIStopWatch : UserControl
     {
+        private const float BTN_SCALE = 0.6f;
         private IStopWatch stopwatch;
         private bool started;
+
+        public volatile bool IsAlive;
 
         private void UpdateTimeString(string timeStr)
         {
@@ -21,11 +23,21 @@ namespace WI_StopWatch
             {
                 this.laTime.Text = timeStr;
             }));
+
+        }
+
+        private void ResizeButtonIamges()
+        {
+            Images.ResizeButtonImg(btnStart, BTN_SCALE);
+            Images.ResizeButtonImg(btnRemove, BTN_SCALE);
+            Images.ResizeButtonImg(btnReset, BTN_SCALE);
         }
 
         public UIStopWatch(string title)
         {
             InitializeComponent();
+            ResizeButtonIamges();
+            IsAlive = true;
             this.laCaption.Text = title;
             this.started = false;
             stopwatch = new SWController(UpdateTimeString);
@@ -56,8 +68,7 @@ namespace WI_StopWatch
         {
             if (started)
             {
-                stopwatch.Stop();
-                started = false;
+                _Stop();
             }
             else
             {
@@ -71,10 +82,24 @@ namespace WI_StopWatch
             _Start();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        public void Stop()
+        {
+            if (IsAlive)
+            {
+                _Stop();
+            }
+        }
+
+        private void Suicide()
         {
             _Stop();
             this.Parent.Controls.Remove(this);
+            IsAlive = false;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            Suicide();
         }
     }
 }

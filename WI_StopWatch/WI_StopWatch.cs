@@ -5,13 +5,14 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WI_StopWatch
 {
     public partial class frmMain : Form
     {
+        private UI_SWList _swList;
+
         public frmMain()
         {
             InitializeComponent();
@@ -19,9 +20,7 @@ namespace WI_StopWatch
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UI_SWList swList = new UI_SWList();
-            swList.Dock = DockStyle.Fill;
-            this.panel1.Controls.Add(swList);
+
         }
 
         private void frmMain_Shown(object sender, EventArgs e)
@@ -42,6 +41,21 @@ namespace WI_StopWatch
         private void button4_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            _swList = new UI_SWList();
+            _swList.Dock = DockStyle.Fill;
+            this.mainContainer.Controls.Add(_swList);
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_swList != null)
+            {
+                _swList.StopAll();
+            }
         }
     }
 }

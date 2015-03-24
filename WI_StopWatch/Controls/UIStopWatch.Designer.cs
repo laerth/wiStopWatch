@@ -83,34 +83,43 @@
             // 
             // btnStart
             // 
+            this.btnStart.BackgroundImage = global::WI_StopWatch.Properties.Resources.pause52;
+            this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnStart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnStart.Location = new System.Drawing.Point(114, 0);
+            this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Location = new System.Drawing.Point(120, 0);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(30, 30);
+            this.btnStart.Size = new System.Drawing.Size(28, 30);
             this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "s";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnReset
             // 
+            this.btnReset.BackgroundImage = global::WI_StopWatch.Properties.Resources.clockwise11;
+            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnReset.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnReset.Location = new System.Drawing.Point(144, 0);
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Location = new System.Drawing.Point(148, 0);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(30, 30);
+            this.btnReset.Size = new System.Drawing.Size(28, 30);
             this.btnReset.TabIndex = 1;
-            this.btnReset.Text = "r";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnRemove
             // 
+            this.btnRemove.BackgroundImage = global::WI_StopWatch.Properties.Resources.delete;
+            this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRemove.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnRemove.Location = new System.Drawing.Point(174, 0);
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Location = new System.Drawing.Point(176, 0);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(30, 30);
+            this.btnRemove.Size = new System.Drawing.Size(28, 30);
             this.btnRemove.TabIndex = 4;
-            this.btnRemove.Text = "d";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
@@ -118,6 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panContentContainer);
             this.Controls.Add(this.panTitleContainer);
             this.Name = "UIStopWatch";
