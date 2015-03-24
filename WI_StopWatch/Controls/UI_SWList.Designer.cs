@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panButtons = new System.Windows.Forms.Panel();
-            this.tbCaption = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panControls = new System.Windows.Forms.Panel();
             this.panButtons.SuspendLayout();
@@ -37,27 +36,12 @@
             // 
             // panButtons
             // 
-            this.panButtons.Controls.Add(this.tbCaption);
             this.panButtons.Controls.Add(this.btnAdd);
             this.panButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.panButtons.Location = new System.Drawing.Point(0, 0);
             this.panButtons.Name = "panButtons";
             this.panButtons.Size = new System.Drawing.Size(287, 30);
             this.panButtons.TabIndex = 0;
-            // 
-            // tbCaption
-            // 
-            this.tbCaption.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCaption.Location = new System.Drawing.Point(3, 7);
-            this.tbCaption.Name = "tbCaption";
-            this.tbCaption.Size = new System.Drawing.Size(248, 20);
-            this.tbCaption.TabIndex = 2;
-            this.tbCaption.Text = "...";
-            this.tbCaption.Click += new System.EventHandler(this.tbCaption_Click);
-            this.tbCaption.Enter += new System.EventHandler(this.tbCaption_Enter);
-            this.tbCaption.MouseEnter += new System.EventHandler(this.tbCaption_MouseEnter);
             // 
             // btnAdd
             // 
@@ -91,7 +75,6 @@
             this.Name = "UI_SWList";
             this.Size = new System.Drawing.Size(287, 252);
             this.panButtons.ResumeLayout(false);
-            this.panButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -99,7 +82,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panButtons;
-        private System.Windows.Forms.TextBox tbCaption;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panControls;
     }

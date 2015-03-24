@@ -37,11 +37,12 @@ namespace WI_StopWatch
 
         private void AddControl()
         {
-            UIStopWatch control = new UIStopWatch(tbCaption.Text);
+            UIStopWatch control = new UIStopWatch(string.Empty);
             control.Dock = DockStyle.Top;
             controls.Add(control);
             panControls.Controls.Add(control);
             control.Start();
+            control.SetFocus();
         }
         
         private void btnAdd_Click(object sender, EventArgs e)

@@ -31,6 +31,7 @@ namespace WI_StopWatch
             Images.ResizeButtonImg(btnStart, BTN_SCALE);
             Images.ResizeButtonImg(btnRemove, BTN_SCALE);
             Images.ResizeButtonImg(btnReset, BTN_SCALE);
+            Images.ResizeButtonImg(btnEdit, BTN_SCALE);
         }
 
         public UIStopWatch(string title)
@@ -38,9 +39,23 @@ namespace WI_StopWatch
             InitializeComponent();
             ResizeButtonIamges();
             IsAlive = true;
-            this.laCaption.Text = title;
+            this.tbCaption.Text = title;
             this.started = false;
             stopwatch = new SWController(UpdateTimeString);
+        }
+
+        public void SetFocus()
+        {
+            if (!this.tbCaption.Focused)
+            {
+                this.tbCaption.Focus();
+            }
+            this.tbCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+
+        public void Blur()
+        {
+            this.tbCaption.BorderStyle = System.Windows.Forms.BorderStyle.None;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -56,6 +71,7 @@ namespace WI_StopWatch
         private void btnStart_Click(object sender, EventArgs e)
         {
             _Start();
+            SwapIcons();
         }
 
         private void _Stop()
@@ -64,6 +80,19 @@ namespace WI_StopWatch
             started = false;
         }
 
+        private void SwapIcons()
+        {
+            if(started)
+            {
+                btnStart.BackgroundImage = global::WI_StopWatch.Properties.Resources.pause52;
+            }
+            else
+            {
+                btnStart.BackgroundImage = global::WI_StopWatch.Properties.Resources.play128;
+            }
+            Images.ResizeButtonImg(btnStart, BTN_SCALE);
+        }
+        
         private void _Start()
         {
             if (started)
@@ -90,7 +119,7 @@ namespace WI_StopWatch
             }
         }
 
-        private void Suicide()
+        private void KillSelf()
         {
             _Stop();
             this.Parent.Controls.Remove(this);
@@ -99,7 +128,27 @@ namespace WI_StopWatch
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            Suicide();
+            KillSelf();
+        }
+
+        private void UIStopWatch_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.BackColor = Color.Black;
+        }
+
+        private void tbCaption_Leave(object sender, EventArgs e)
+        {
+            Blur();
+        }
+
+        private void tbCaption_Enter(object sender, EventArgs e)
+        {
+            SetFocus();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            SetFocus();
         }
     }
 }

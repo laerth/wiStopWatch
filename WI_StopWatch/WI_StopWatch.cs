@@ -57,5 +57,10 @@ namespace WI_StopWatch
                 _swList.StopAll();
             }
         }
+
+        private void frmMain_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
