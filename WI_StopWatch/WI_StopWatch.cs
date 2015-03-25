@@ -45,7 +45,7 @@ namespace WI_StopWatch
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            _swList = new UI_SWList();
+            _swList = new UI_SWList(this);
             _swList.Dock = DockStyle.Fill;
             this.mainContainer.Controls.Add(_swList);
         }

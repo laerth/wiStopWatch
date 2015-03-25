@@ -11,7 +11,7 @@ namespace WI_StopWatch
 {
     public partial class UIStopWatch : UserControl
     {
-        private const float BTN_SCALE = 0.6f;
+        private const float BTN_SCALE = 0.4f;
         private IStopWatch stopwatch;
         private bool started;
 
