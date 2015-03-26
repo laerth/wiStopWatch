@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace WI_StopWatch
 {
@@ -13,6 +14,7 @@ namespace WI_StopWatch
     {
         private UI_SWList _swList;
         private NotifyIcon _notifyIco;
+        private Thread notifyUpdater;
 
         public frmMain()
         {
@@ -27,7 +29,7 @@ namespace WI_StopWatch
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-           
+            _swList.FocusFirst(); 
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -58,6 +60,22 @@ namespace WI_StopWatch
             this.Close();
         }
 
+        private void UpdateNotify()
+        {
+            while (true)
+            {
+                this.Invoke(new Action(() =>
+                    {
+                        string outstr = string.Format("Задач на выполнении: {0} / {1}\r\n\r\nОбщее время: {2}",
+                            _swList.GetRunningCount().ToString(),
+                            _swList.GetTaskCount().ToString(),
+                            _swList.GetTotalTimeS());
+                        _notifyIco.Text = outstr;
+                    }));
+                Thread.Sleep(250);
+            }
+        }
+
         private void CreateNotifyIco()
         {
             _notifyIco = new NotifyIcon();
@@ -65,11 +83,22 @@ namespace WI_StopWatch
             _notifyIco.Visible = true;
             _notifyIco.Click += _notifyIco_Click;
             _notifyIco.ContextMenu = CreateNotifyMenu();
+            _notifyIco.Text = "Секундомер";
+
+            notifyUpdater = new Thread(UpdateNotify);
+            notifyUpdater.Start();
         }
 
         void _notifyIco_Click(object sender, EventArgs e)
         {
-            this.Show();
+            if (this.Visible)
+            {
+                this.Hide();
+            }
+            else
+            {
+                this.Show();
+            }
             this.Activate();
         }
 
@@ -82,9 +111,17 @@ namespace WI_StopWatch
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (notifyUpdater != null)
+            {
+                notifyUpdater.Abort();
+            }
             if (_swList != null)
             {
                 _swList.StopAll();
+            }
+            if (_notifyIco != null)
+            {
+                _notifyIco.Dispose();
             }
         }
 

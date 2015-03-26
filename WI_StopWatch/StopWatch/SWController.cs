@@ -58,5 +58,11 @@ namespace WI_StopWatch
         {
             return stopWatch.GetTime();
         }
+
+
+        public bool IsStopped()
+        {
+            return stopWatch.IsStopped();
+        }
     }
 }

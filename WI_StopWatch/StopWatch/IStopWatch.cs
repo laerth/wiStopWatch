@@ -24,5 +24,10 @@ namespace WI_StopWatch
         /// </summary>
         /// <returns></returns>
         TimeSpan GetTime();
+        /// <summary>
+        /// Состояние таймера
+        /// </summary>
+        /// <returns></returns>
+        bool IsStopped();
     }
 }

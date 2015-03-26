@@ -57,5 +57,11 @@ namespace WI_StopWatch
         {
             return _GetTime();
         }
+
+
+        public bool IsStopped()
+        {
+            return _stopped;
+        }
     }
 }

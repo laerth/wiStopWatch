@@ -43,31 +43,79 @@ namespace WI_StopWatch
             _parentForm = parentForm;
             controls = new List<UserControl>();
             panControls.AutoScroll = true;
-            Images.ResizeButtonImg(btnAdd, 0.5f);
-            Images.ResizeButtonImg(btnClose, 0.8f);
+            Common.ResizeButtonImg(btnAdd, 0.5f);
+            Common.ResizeButtonImg(btnClose, 0.8f);
 
-            AddControl(false);
+            AddControl();
         }
 
-        private void AddControl(bool autoStart = true)
+        private void AddControl()
         {
-            _parentForm.SuspendLayout();
+           _parentForm.SuspendLayout();
             UIStopWatch control = new UIStopWatch(string.Empty);
             control.Dock = DockStyle.Top;
             controls.Add(control);
             panControls.Controls.Add(control);
-            if (autoStart)
+            control.SetFocus();
+           _parentForm.ResumeLayout();
+        }
+
+        public void FocusFirst()
+        {
+            foreach (Control c in panControls.Controls)
             {
-                control.Start();
-                control.SetFocus();
+                UIStopWatch sw = c as UIStopWatch;
+                if (sw != null)
+                {
+                    sw.SetFocus();
+                    break;
+                }
             }
-            else
+        }
+
+        public string GetTotalTimeS()
+        {
+            TimeSpan total = new TimeSpan();
+            foreach (var c in controls)
             {
-                control.Stop();
-                control.SwapIcons();
-                control.Blur();
+                UIStopWatch sw = c as UIStopWatch;
+                if (sw != null && sw.IsAlive)
+                {
+                    total += sw.GetTime();
+                }
             }
-            _parentForm.ResumeLayout();
+
+            return total.ToString(@"hh\:mm\:ss");
+        }
+
+        public int GetTaskCount()
+        {
+            int count = 0;
+            foreach (var c in controls)
+            {
+                UIStopWatch sw = c as UIStopWatch;
+                if (sw != null && sw.IsAlive)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        public int GetRunningCount()
+        {
+            int count = 0;
+            foreach (var c in controls)
+            {
+                UIStopWatch sw = c as UIStopWatch;
+                if (sw != null && sw.IsAlive && sw.IsRunning())
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
         
         private void btnAdd_Click(object sender, EventArgs e)

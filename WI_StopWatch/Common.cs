@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WI_StopWatch
 {
-    public static class Images
+    public static class Common
     {
         public static void ResizeButtonImg(Button btn, float scale)
         {
@@ -25,6 +25,12 @@ namespace WI_StopWatch
                 btn.BackgroundImage = newImage;
                 btn.BackgroundImageLayout = ImageLayout.Center;
             }
+        }
+
+        public static void SetHint(Control control, string hint)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(control, hint);
         }
     }
 }

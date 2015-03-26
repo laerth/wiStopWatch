@@ -103,7 +103,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.BackgroundImage = global::WI_StopWatch.Properties.Resources.pause52;
+            this.btnStart.BackgroundImage = global::WI_StopWatch.Properties.Resources.play128;
             this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnStart.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnStart.FlatAppearance.BorderSize = 0;

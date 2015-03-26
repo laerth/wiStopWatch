@@ -67,7 +67,7 @@
     <Compile Include="Controls\UI_SWList.Designer.cs">
       <DependentUpon>UI_SWList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Images.cs" />
+    <Compile Include="Common.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

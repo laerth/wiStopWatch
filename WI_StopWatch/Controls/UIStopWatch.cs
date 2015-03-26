@@ -11,7 +11,9 @@ namespace WI_StopWatch
 {
     public partial class UIStopWatch : UserControl
     {
+        private const string WATERMARK_TEXT = "Неизвестно";
         private const float BTN_SCALE = 0.4f;
+
         private IStopWatch stopwatch;
         private bool started;
 
@@ -28,10 +30,10 @@ namespace WI_StopWatch
 
         private void ResizeButtonIamges()
         {
-            Images.ResizeButtonImg(btnStart, BTN_SCALE);
-            Images.ResizeButtonImg(btnRemove, BTN_SCALE);
-            Images.ResizeButtonImg(btnReset, BTN_SCALE);
-            Images.ResizeButtonImg(btnEdit, BTN_SCALE);
+            Common.ResizeButtonImg(btnStart, BTN_SCALE);
+            Common.ResizeButtonImg(btnRemove, BTN_SCALE);
+            Common.ResizeButtonImg(btnReset, BTN_SCALE);
+            Common.ResizeButtonImg(btnEdit, BTN_SCALE);
         }
 
         public UIStopWatch(string title)
@@ -40,8 +42,14 @@ namespace WI_StopWatch
             ResizeButtonIamges();
             IsAlive = true;
             this.tbCaption.Text = title;
+            this.Blur();
             this.started = false;
             stopwatch = new SWController(UpdateTimeString);
+        }
+
+        public TimeSpan GetTime()
+        {
+            return stopwatch.GetTime();
         }
 
         public void SetFocus()
@@ -51,11 +59,21 @@ namespace WI_StopWatch
                 this.tbCaption.Focus();
             }
             this.tbCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            if (tbCaption.Text == WATERMARK_TEXT)
+            {
+                tbCaption.Text = string.Empty;
+                tbCaption.ForeColor = Color.Black;
+            }
         }
 
         public void Blur()
         {
             this.tbCaption.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            if (this.tbCaption.Text.Length == 0)
+            {
+                tbCaption.Text = WATERMARK_TEXT;
+                tbCaption.ForeColor = Color.LightGray;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -90,7 +108,7 @@ namespace WI_StopWatch
             {
                 btnStart.BackgroundImage = global::WI_StopWatch.Properties.Resources.play128;
             }
-            Images.ResizeButtonImg(btnStart, BTN_SCALE);
+            Common.ResizeButtonImg(btnStart, BTN_SCALE);
         }
 
         public void SwapIcons()
@@ -122,6 +140,11 @@ namespace WI_StopWatch
             {
                 _Stop();
             }
+        }
+
+        public bool IsRunning()
+        {
+            return !stopwatch.IsStopped();
         }
 
         private void KillSelf()
