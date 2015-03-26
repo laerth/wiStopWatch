@@ -42,7 +42,10 @@ namespace WI_StopWatch
         public void Stop()
         {
             stopWatch.Stop();
-            updater.Abort();
+            if (updater != null)
+            {
+                updater.Abort();
+            }
         }
 
         public void Reset()

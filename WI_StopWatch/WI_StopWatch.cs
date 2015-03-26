@@ -12,10 +12,12 @@ namespace WI_StopWatch
     public partial class frmMain : Form
     {
         private UI_SWList _swList;
+        private NotifyIcon _notifyIco;
 
         public frmMain()
         {
             InitializeComponent();
+            CreateNotifyIco();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +43,34 @@ namespace WI_StopWatch
         private void button4_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private ContextMenu CreateNotifyMenu()
+        {
+            ContextMenu menu = new ContextMenu();
+            MenuItem mi = menu.MenuItems.Add("Выход");
+            mi.Click += mi_Click;
+            return menu;
+        }
+
+        void mi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CreateNotifyIco()
+        {
+            _notifyIco = new NotifyIcon();
+            _notifyIco.Icon = global::WI_StopWatch.Properties.Resources.stopwatch;
+            _notifyIco.Visible = true;
+            _notifyIco.Click += _notifyIco_Click;
+            _notifyIco.ContextMenu = CreateNotifyMenu();
+        }
+
+        void _notifyIco_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.Activate();
         }
 
         private void frmMain_Load(object sender, EventArgs e)

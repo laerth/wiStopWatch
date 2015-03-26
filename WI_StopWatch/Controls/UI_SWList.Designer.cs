@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI_SWList));
             this.panButtons = new System.Windows.Forms.Panel();
-            this.panControls = new System.Windows.Forms.Panel();
             this.panDrag = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.panControls = new System.Windows.Forms.Panel();
+            this.panBorder = new System.Windows.Forms.Panel();
             this.panButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,17 +49,10 @@
             this.panButtons.Size = new System.Drawing.Size(287, 30);
             this.panButtons.TabIndex = 0;
             // 
-            // panControls
-            // 
-            this.panControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panControls.Location = new System.Drawing.Point(0, 30);
-            this.panControls.Name = "panControls";
-            this.panControls.Size = new System.Drawing.Size(287, 222);
-            this.panControls.TabIndex = 1;
-            // 
             // panDrag
             // 
-            this.panDrag.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panDrag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panDrag.BackgroundImage")));
+            this.panDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panDrag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panDrag.Location = new System.Drawing.Point(30, 0);
             this.panDrag.Name = "panDrag";
@@ -93,12 +88,32 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // panControls
+            // 
+            this.panControls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panControls.Location = new System.Drawing.Point(0, 32);
+            this.panControls.Name = "panControls";
+            this.panControls.Size = new System.Drawing.Size(289, 221);
+            this.panControls.TabIndex = 1;
+            // 
+            // panBorder
+            // 
+            this.panBorder.BackColor = System.Drawing.Color.LightGray;
+            this.panBorder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panBorder.Location = new System.Drawing.Point(0, 30);
+            this.panBorder.Name = "panBorder";
+            this.panBorder.Size = new System.Drawing.Size(287, 2);
+            this.panBorder.TabIndex = 2;
+            // 
             // UI_SWList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panControls);
+            this.Controls.Add(this.panBorder);
             this.Controls.Add(this.panButtons);
             this.Name = "UI_SWList";
             this.Size = new System.Drawing.Size(287, 252);
@@ -111,8 +126,9 @@
 
         private System.Windows.Forms.Panel panButtons;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Panel panControls;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panDrag;
+        private System.Windows.Forms.Panel panControls;
+        private System.Windows.Forms.Panel panBorder;
     }
 }

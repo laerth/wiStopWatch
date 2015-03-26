@@ -71,7 +71,7 @@ namespace WI_StopWatch
         private void btnStart_Click(object sender, EventArgs e)
         {
             _Start();
-            SwapIcons();
+            _SwapIcons();
         }
 
         private void _Stop()
@@ -80,7 +80,7 @@ namespace WI_StopWatch
             started = false;
         }
 
-        private void SwapIcons()
+        private void _SwapIcons()
         {
             if(started)
             {
@@ -91,6 +91,11 @@ namespace WI_StopWatch
                 btnStart.BackgroundImage = global::WI_StopWatch.Properties.Resources.play128;
             }
             Images.ResizeButtonImg(btnStart, BTN_SCALE);
+        }
+
+        public void SwapIcons()
+        {
+            _SwapIcons();
         }
         
         private void _Start()
@@ -149,6 +154,16 @@ namespace WI_StopWatch
         private void btnEdit_Click(object sender, EventArgs e)
         {
             SetFocus();
+        }
+
+        private void tbCaption_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    laTime.Focus();
+                    break;
+            }
         }
     }
 }

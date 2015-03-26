@@ -45,16 +45,29 @@ namespace WI_StopWatch
             panControls.AutoScroll = true;
             Images.ResizeButtonImg(btnAdd, 0.5f);
             Images.ResizeButtonImg(btnClose, 0.8f);
+
+            AddControl(false);
         }
 
-        private void AddControl()
+        private void AddControl(bool autoStart = true)
         {
+            _parentForm.SuspendLayout();
             UIStopWatch control = new UIStopWatch(string.Empty);
             control.Dock = DockStyle.Top;
             controls.Add(control);
             panControls.Controls.Add(control);
-            control.Start();
-            control.SetFocus();
+            if (autoStart)
+            {
+                control.Start();
+                control.SetFocus();
+            }
+            else
+            {
+                control.Stop();
+                control.SwapIcons();
+                control.Blur();
+            }
+            _parentForm.ResumeLayout();
         }
         
         private void btnAdd_Click(object sender, EventArgs e)
@@ -89,7 +102,7 @@ namespace WI_StopWatch
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            _parentForm.Close();
+            _parentForm.Hide();
         }
 
         private void panDrag_MouseDown(object sender, MouseEventArgs e)

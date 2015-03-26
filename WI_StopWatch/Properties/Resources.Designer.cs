@@ -93,16 +93,6 @@ namespace WI_StopWatch.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close40 {
-            get {
-                object obj = ResourceManager.GetObject("close40", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -113,9 +103,9 @@ namespace WI_StopWatch.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap not19 {
+        internal static System.Drawing.Bitmap draggable8 {
             get {
-                object obj = ResourceManager.GetObject("not19", resourceCulture);
+                object obj = ResourceManager.GetObject("draggable8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -147,6 +137,16 @@ namespace WI_StopWatch.Properties {
             get {
                 object obj = ResourceManager.GetObject("play128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon stopwatch {
+            get {
+                object obj = ResourceManager.GetObject("stopwatch", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

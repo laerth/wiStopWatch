@@ -48,10 +48,12 @@
             this.ClientSize = new System.Drawing.Size(285, 262);
             this.ControlBox = false;
             this.Controls.Add(this.mainContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Shown += new System.EventHandler(this.frmMain_Shown);

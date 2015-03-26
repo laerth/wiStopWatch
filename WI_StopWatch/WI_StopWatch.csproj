@@ -68,6 +68,11 @@
       <DependentUpon>UI_SWList.cs</DependentUpon>
     </Compile>
     <Compile Include="Images.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="StopWatch\IStopWatch.cs" />
     <Compile Include="StopWatch\SWController.cs" />
     <Compile Include="Controls\UIStopWatch.cs">
@@ -96,14 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -156,13 +156,16 @@
     <None Include="Resources\pencil125.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close40.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\not19.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\blind2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\draggable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopwatch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopwatch.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
