@@ -35,12 +35,16 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.panControls = new System.Windows.Forms.Panel();
             this.panBorder = new System.Windows.Forms.Panel();
+            this.panBorderLeft = new System.Windows.Forms.Panel();
+            this.panBorderRight = new System.Windows.Forms.Panel();
             this.panButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // panButtons
             // 
             this.panButtons.Controls.Add(this.panDrag);
+            this.panButtons.Controls.Add(this.panBorderRight);
+            this.panButtons.Controls.Add(this.panBorderLeft);
             this.panButtons.Controls.Add(this.btnClose);
             this.panButtons.Controls.Add(this.btnAdd);
             this.panButtons.Dock = System.Windows.Forms.DockStyle.Top;
@@ -54,9 +58,9 @@
             this.panDrag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panDrag.BackgroundImage")));
             this.panDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panDrag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panDrag.Location = new System.Drawing.Point(30, 0);
+            this.panDrag.Location = new System.Drawing.Point(32, 0);
             this.panDrag.Name = "panDrag";
-            this.panDrag.Size = new System.Drawing.Size(227, 30);
+            this.panDrag.Size = new System.Drawing.Size(223, 30);
             this.panDrag.TabIndex = 3;
             this.panDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panDrag_MouseDown);
             // 
@@ -107,6 +111,24 @@
             this.panBorder.Size = new System.Drawing.Size(287, 2);
             this.panBorder.TabIndex = 2;
             // 
+            // panBorderLeft
+            // 
+            this.panBorderLeft.BackColor = System.Drawing.Color.LightGray;
+            this.panBorderLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panBorderLeft.Location = new System.Drawing.Point(30, 0);
+            this.panBorderLeft.Name = "panBorderLeft";
+            this.panBorderLeft.Size = new System.Drawing.Size(2, 30);
+            this.panBorderLeft.TabIndex = 4;
+            // 
+            // panBorderRight
+            // 
+            this.panBorderRight.BackColor = System.Drawing.Color.LightGray;
+            this.panBorderRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panBorderRight.Location = new System.Drawing.Point(255, 0);
+            this.panBorderRight.Name = "panBorderRight";
+            this.panBorderRight.Size = new System.Drawing.Size(2, 30);
+            this.panBorderRight.TabIndex = 6;
+            // 
             // UI_SWList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,5 +152,7 @@
         private System.Windows.Forms.Panel panDrag;
         private System.Windows.Forms.Panel panControls;
         private System.Windows.Forms.Panel panBorder;
+        private System.Windows.Forms.Panel panBorderLeft;
+        private System.Windows.Forms.Panel panBorderRight;
     }
 }

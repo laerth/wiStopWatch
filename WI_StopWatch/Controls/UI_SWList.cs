@@ -15,6 +15,7 @@ namespace WI_StopWatch
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+        public event EventHandler ControlAddedOrRemoved;
 
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -45,19 +46,43 @@ namespace WI_StopWatch
             panControls.AutoScroll = true;
             Common.ResizeButtonImg(btnAdd, 0.5f);
             Common.ResizeButtonImg(btnClose, 0.8f);
-
-            AddControl();
+            Common.SetHint(btnAdd, "Добавить таймер");
+            Common.SetHint(btnClose, "Свернуть в трей");
+            Common.SetHint(panDrag, "Переместить");
         }
 
-        private void AddControl()
+        public void AddControl()
         {
-           _parentForm.SuspendLayout();
+            _parentForm.SuspendLayout();
             UIStopWatch control = new UIStopWatch(string.Empty);
+            control.ControlDeleted += ControlAddedOrRemoved;
             control.Dock = DockStyle.Top;
             controls.Add(control);
             panControls.Controls.Add(control);
             control.SetFocus();
-           _parentForm.ResumeLayout();
+            _parentForm.ResumeLayout();
+            if (ControlAddedOrRemoved != null)
+            {
+                ControlAddedOrRemoved.Invoke(this, null);
+            }
+        }
+
+        public int GetRealHeight()
+        {
+            int h = 0;
+            foreach (var c in controls)
+            {
+                UIStopWatch sw = c as UIStopWatch;
+                if (sw != null && sw.IsAlive)
+                {
+                    h += c.Height;
+                }
+            }
+
+            h += panBorder.Height;
+            h += panButtons.Height;
+
+            return h;
         }
 
         public void FocusFirst()

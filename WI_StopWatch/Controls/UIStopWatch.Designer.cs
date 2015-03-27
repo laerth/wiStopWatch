@@ -162,6 +162,7 @@
             this.Controls.Add(this.panTitleContainer);
             this.Name = "UIStopWatch";
             this.Size = new System.Drawing.Size(204, 62);
+            this.Click += new System.EventHandler(this.UIStopWatch_Click);
             this.panTitleContainer.ResumeLayout(false);
             this.panTitleContainer.PerformLayout();
             this.panContentContainer.ResumeLayout(false);

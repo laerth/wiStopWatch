@@ -102,11 +102,42 @@ namespace WI_StopWatch
             this.Activate();
         }
 
+        public void ResizeForm()
+        {
+            int maxHeight = (int)(0.6 * SystemInformation.VirtualScreen.Height);
+            if (_swList != null)
+            {
+                int realHeight = _swList.GetRealHeight();
+                if (realHeight < maxHeight)
+                {
+                    this.Height = realHeight + 1;
+                }
+            }
+        }
+
+        private void LocateForm()
+        {
+            int scrW = SystemInformation.VirtualScreen.Width;
+            int scrH = SystemInformation.VirtualScreen.Height;
+            //int taskBarH = scrH - SystemInformation.WorkingArea.Height;
+            int offsetX = (int)(this.Width * 0.1);
+            int offsetY = (int)(this.Height * 0.3);
+            this.Location = new Point(scrW - this.Width - offsetX, (int)(0.3 * scrH));
+        }
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             _swList = new UI_SWList(this);
             _swList.Dock = DockStyle.Fill;
+            _swList.ControlAddedOrRemoved += _swList_AfterControlAdded;
+            _swList.AddControl();
             this.mainContainer.Controls.Add(_swList);
+            LocateForm();
+        }
+
+        void _swList_AfterControlAdded(object sender, EventArgs e)
+        {
+            ResizeForm();
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

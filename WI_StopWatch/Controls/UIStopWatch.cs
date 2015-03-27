@@ -18,6 +18,7 @@ namespace WI_StopWatch
         private bool started;
 
         public volatile bool IsAlive;
+        public event EventHandler ControlDeleted;
 
         private void UpdateTimeString(string timeStr)
         {
@@ -45,6 +46,11 @@ namespace WI_StopWatch
             this.Blur();
             this.started = false;
             stopwatch = new SWController(UpdateTimeString);
+
+            Common.SetHint(btnEdit, "Редактировать название");
+            Common.SetHint(btnRemove, "Удалить");
+            Common.SetHint(btnReset, "Обнулить");
+            Common.SetHint(btnStart, "Запуск/Пауза");
         }
 
         public TimeSpan GetTime()
@@ -152,6 +158,10 @@ namespace WI_StopWatch
             _Stop();
             this.Parent.Controls.Remove(this);
             IsAlive = false;
+            if (ControlDeleted != null)
+            {
+                ControlDeleted.Invoke(this, null);
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -187,6 +197,10 @@ namespace WI_StopWatch
                     laTime.Focus();
                     break;
             }
+        }
+
+        private void UIStopWatch_Click(object sender, EventArgs e)
+        {
         }
     }
 }

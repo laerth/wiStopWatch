@@ -35,7 +35,7 @@ namespace WI_StopWatch
 
         private TimeSpan _GetTime()
         {
-            return _stopped ? _frozenTime : _startTime - DateTime.Now;
+            return _stopped ? _frozenTime : DateTime.Now - _startTime;
         }
 
         public void Start()
