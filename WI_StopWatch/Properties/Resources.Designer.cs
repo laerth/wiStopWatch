@@ -73,16 +73,6 @@ namespace WI_StopWatch.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blind2 {
-            get {
-                object obj = ResourceManager.GetObject("blind2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap clockwise11 {
             get {
                 object obj = ResourceManager.GetObject("clockwise11", resourceCulture);
@@ -96,6 +86,16 @@ namespace WI_StopWatch.Properties {
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download149 {
+            get {
+                object obj = ResourceManager.GetObject("download149", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

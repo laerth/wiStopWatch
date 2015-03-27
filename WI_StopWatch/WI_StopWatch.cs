@@ -135,6 +135,12 @@ namespace WI_StopWatch
             LocateForm();
         }
 
+        public void Minimize()
+        {
+            this.Hide();
+            _notifyIco.ShowBalloonTip(5000, "", _notifyIco.Text, ToolTipIcon.Info);
+        }
+
         void _swList_AfterControlAdded(object sender, EventArgs e)
         {
             ResizeForm();

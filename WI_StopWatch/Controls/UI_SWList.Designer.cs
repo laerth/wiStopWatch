@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI_SWList));
             this.panButtons = new System.Windows.Forms.Panel();
-            this.panDrag = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panControls = new System.Windows.Forms.Panel();
             this.panBorder = new System.Windows.Forms.Panel();
             this.panBorderLeft = new System.Windows.Forms.Panel();
             this.panBorderRight = new System.Windows.Forms.Panel();
+            this.panDrag = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,45 +52,6 @@
             this.panButtons.Name = "panButtons";
             this.panButtons.Size = new System.Drawing.Size(287, 30);
             this.panButtons.TabIndex = 0;
-            // 
-            // panDrag
-            // 
-            this.panDrag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panDrag.BackgroundImage")));
-            this.panDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.panDrag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panDrag.Location = new System.Drawing.Point(32, 0);
-            this.panDrag.Name = "panDrag";
-            this.panDrag.Size = new System.Drawing.Size(223, 30);
-            this.panDrag.TabIndex = 3;
-            this.panDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panDrag_MouseDown);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackgroundImage = global::WI_StopWatch.Properties.Resources.blind2;
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(257, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundImage = global::WI_StopWatch.Properties.Resources.add;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(0, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(30, 30);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panControls
             // 
@@ -128,6 +89,45 @@
             this.panBorderRight.Name = "panBorderRight";
             this.panBorderRight.Size = new System.Drawing.Size(2, 30);
             this.panBorderRight.TabIndex = 6;
+            // 
+            // panDrag
+            // 
+            this.panDrag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panDrag.BackgroundImage")));
+            this.panDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panDrag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panDrag.Location = new System.Drawing.Point(32, 0);
+            this.panDrag.Name = "panDrag";
+            this.panDrag.Size = new System.Drawing.Size(223, 30);
+            this.panDrag.TabIndex = 3;
+            this.panDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panDrag_MouseDown);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImage = global::WI_StopWatch.Properties.Resources.download149;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(257, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = global::WI_StopWatch.Properties.Resources.add;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Location = new System.Drawing.Point(0, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(30, 30);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // UI_SWList
             // 

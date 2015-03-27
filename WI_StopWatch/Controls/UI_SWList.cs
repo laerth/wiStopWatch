@@ -175,7 +175,7 @@ namespace WI_StopWatch
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            _parentForm.Hide();
+            (_parentForm as frmMain).Minimize();
         }
 
         private void panDrag_MouseDown(object sender, MouseEventArgs e)

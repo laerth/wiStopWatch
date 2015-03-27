@@ -29,6 +29,25 @@ namespace WI_StopWatch
 
         }
 
+        private void WireAllControls(Control cont)
+        {
+            foreach (Control ctl in cont.Controls)
+            {
+                if (ctl == tbCaption)
+                    continue;
+                ctl.Click += ctl_Click;
+                if (ctl.HasChildren)
+                {
+                    WireAllControls(ctl);
+                }
+            }
+        }
+
+        private void ctl_Click(object sender, EventArgs e)
+        {
+            this.InvokeOnClick(this, new ClickEventArgs(sender as Control));
+        }
+
         private void ResizeButtonIamges()
         {
             Common.ResizeButtonImg(btnStart, BTN_SCALE);
@@ -51,6 +70,8 @@ namespace WI_StopWatch
             Common.SetHint(btnRemove, "Удалить");
             Common.SetHint(btnReset, "Обнулить");
             Common.SetHint(btnStart, "Запуск/Пауза");
+
+            WireAllControls(this);
         }
 
         public TimeSpan GetTime()
@@ -201,6 +222,26 @@ namespace WI_StopWatch
 
         private void UIStopWatch_Click(object sender, EventArgs e)
         {
+            ClickEventArgs ce = e as ClickEventArgs;
+            if (ce != null && ce.Sender != null)
+            {
+                Blur();
+                ce.Sender.Focus();
+            }
+        }
+    }
+
+    class ClickEventArgs : EventArgs
+    {
+        public ClickEventArgs(Control sender)
+        {
+            this.Sender = sender;
+        }
+
+        public Control Sender 
+        {
+            get;
+            private set;
         }
     }
 }
