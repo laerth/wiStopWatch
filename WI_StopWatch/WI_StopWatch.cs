@@ -64,14 +64,17 @@ namespace WI_StopWatch
         {
             while (true)
             {
-                this.Invoke(new Action(() =>
-                    {
-                        string outstr = string.Format("Задач на выполнении: {0} / {1}\r\n\r\nОбщее время: {2}",
-                            _swList.GetRunningCount().ToString(),
-                            _swList.GetTaskCount().ToString(),
-                            _swList.GetTotalTimeS());
-                        _notifyIco.Text = outstr;
-                    }));
+                if (this.IsHandleCreated)
+                {
+                    this.Invoke(new Action(() =>
+                        {
+                            string outstr = string.Format("Задач на выполнении: {0} / {1}\r\n\r\nОбщее время: {2}",
+                                _swList.GetRunningCount().ToString(),
+                                _swList.GetTaskCount().ToString(),
+                                _swList.GetTotalTimeS());
+                            _notifyIco.Text = outstr;
+                        }));
+                }
                 Thread.Sleep(250);
             }
         }
